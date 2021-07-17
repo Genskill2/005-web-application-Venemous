@@ -30,9 +30,9 @@ def dashboard():
     if order == "asc":
         cursor.execute(f"select p.id, p.name, p.bought, p.sold, s.name from pet p, animal s where p.species = s.id order by p.{oby}")
     else:
-        cursor.execute(f"select p.id, p.name, p.bought, p.sold, s.name from pet p, animal s where p.species = s.id order by ? desc")
+        cursor.execute(f"select p.id, p.name, p.bought, p.sold, s.name from pet p, animal s where p.species = s.id order by p.{oby} desc")
     pets = cursor.fetchall()
-    return render_template('index.html', pets = pets, order="asc" if order=="asc" else "desc")
+    return render_template('index.html', pets = pets, order="desc" if order=="asc" else "asc")
 
 
 @bp.route("/<pid>")
