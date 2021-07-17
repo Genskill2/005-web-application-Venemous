@@ -13,6 +13,7 @@
   <span class="badge rounded-pill bg-primary">Available for sale</span>
   {%endif%}
   </h6>
+
 <form action="{{url_for('pets.edit', pid=id)}}" method="POST">
   <div class="mb-3">
     <label for = "description" class="form-label">Description</label><br/>
@@ -24,9 +25,8 @@
 
   <div class="mb-3">
     <div class="form-check">
-      {# TODO  Add sold checkbox here #}
-      <label class="form-check-label" for="sold" > Sold </label>
-    </div>
+      <label type="submit" class="form-check-label" for="sold" > Sold </label>
+      <input type="text" id="sold" name="sold">
   </div>
 
   <div class="mb-3">
